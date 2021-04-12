@@ -52,6 +52,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Camera Switch",
+                    "type": "PassThrough",
+                    "id": "610af38b-0910-4106-890f-60405f67a694",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -168,7 +176,7 @@
                 {
                     "name": "negative",
                     "id": "97424c47-b34c-436d-a43a-2c002c4ad0da",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -179,7 +187,7 @@
                 {
                     "name": "positive",
                     "id": "6a9d85fb-4d43-430f-bb6b-eb080e6680eb",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -201,7 +209,7 @@
                 {
                     "name": "negative",
                     "id": "4b36734e-ed05-49f6-bb05-ec4bbd71df34",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -212,7 +220,7 @@
                 {
                     "name": "positive",
                     "id": "ff390df8-55e3-43a2-be48-2d195393cea5",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -234,7 +242,7 @@
                 {
                     "name": "negative",
                     "id": "afed372a-da9f-4025-8c15-c0c2c25b1e7c",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -245,13 +253,24 @@
                 {
                     "name": "positive",
                     "id": "3ea82002-dd1c-4327-937e-df8345ea3d58",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Rotation Y axis",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2072c131-c2f0-4a0b-b5ec-8dcfb93e0d9a",
+                    "path": "<Keyboard>/t",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

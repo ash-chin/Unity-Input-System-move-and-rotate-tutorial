@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 
 public class Player_Space_Ship_Movement : MonoBehaviour
 {
+    public Camera mainCam;
+    public Camera noseCam;
+
     private CharacterController controller;
     private Transform playerShipTransform;
     [SerializeField] private InputActionAsset controls;
@@ -44,6 +47,12 @@ public class Player_Space_Ship_Movement : MonoBehaviour
     [SerializeField] private float rotationCurrentYAxisSpeed;
 
 
+    private void Start()
+    {
+        mainCam.enabled = true;
+        noseCam.enabled = false;
+    }
+
     private void Awake()
     {
         controller = gameObject.GetComponent<CharacterController>();
@@ -67,8 +76,15 @@ public class Player_Space_Ship_Movement : MonoBehaviour
 
         controls.FindActionMap("Space Ship Controls").FindAction("Rotation Y Axis").performed += cntxt => rotationYAxis = cntxt.ReadValue<float>();
         controls.FindActionMap("Space Ship Controls").FindAction("Rotation Y Axis").canceled += cntxt => rotationYAxis = 0;
+
+        controls.FindActionMap("Space Ship Controls").FindAction("Camera Switch").performed += cntxt => SwitchCamera();
     }
 
+    void SwitchCamera()
+    {
+        mainCam.enabled = !mainCam.enabled;
+        noseCam.enabled = !noseCam.enabled;
+    }
 
     private void OnEnable()
     {
@@ -78,6 +94,7 @@ public class Player_Space_Ship_Movement : MonoBehaviour
         controls.FindAction("Rotation Z Axis").Enable();
         controls.FindAction("Rotation X Axis").Enable();
         controls.FindAction("Rotation Y Axis").Enable();
+        controls.FindAction("Camera Switch").Enable();
     }
 
     private void OnDisable()
@@ -88,11 +105,13 @@ public class Player_Space_Ship_Movement : MonoBehaviour
         controls.FindAction("Rotation Z Axis").Disable();
         controls.FindAction("Rotation X Axis").Disable();
         controls.FindAction("Rotation Y Axis").Disable();
+        controls.FindAction("Camera Switch").Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         // controls the movement speed during acceleration and deceleration.
         movementCurrentZAxisSpeed = Mathf.Lerp(movementCurrentZAxisSpeed, movementZAxis * movementMaxZAxisSpeed, movementAccelerationZAxis * Time.deltaTime);
         movementCurrentXAxisSpeed = Mathf.Lerp(movementCurrentXAxisSpeed, movementXAxis * movementMaxXAxisSpeed, movementAccelerationXAxis * Time.deltaTime);
